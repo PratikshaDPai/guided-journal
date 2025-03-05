@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 const USER = {
-  name: "Alex Evergreen",
+  name: "John Smith",
   id: 101,
   entries: [
     {
@@ -49,7 +49,9 @@ const USER = {
 };
 
 app.get("/", (req, res) => {
-  res.render("home.ejs");
+  res.render("home.ejs", {
+    user: USER,
+  });
 });
 app.get("/entries", (req, res) => {
   res.render("entries.ejs", {
