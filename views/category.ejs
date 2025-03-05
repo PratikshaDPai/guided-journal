@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+  </head>
+  <body>
+    <title>
+      <%=category==="work"?"Work":category==="wellness"?"Wellness":"Life"%>
+    </title>
+    <ol>
+      <h1>
+        <%=category==="work"?"Work":category==="wellness"?"Wellness":"Life"%>
+      </h1>
+      <% entries.forEach((item,index)=>{ %>
+      <h3>
+        <li><%=item.title%></li>
+        <p>
+          Mood: <%=item.mood%>/5<%=item.mood===5?"⭐":item.mood<=2?"😑":"👌"%>
+        </p>
+      </h3>
+      <p><%=item.body%></p>
+      <p><%=item.timestamp%></p>
+      <%})%>
+    </ol>
+  </body>
+</html>

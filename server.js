@@ -59,9 +59,14 @@ app.get("/entries", (req, res) => {
 app.get("/entries/new", (req, res) => {
   res.render("new.ejs");
 });
-app.get("/entries/:entryID", (req, res) => {
-  res.render("entries.ejs", {
-    USER: USER,
+app.get("/entries/:category", (req, res) => {
+  const category = String(req.params.category).toLowerCase();
+  let entries = USER.entries.filter((item) => {
+    return item.category === category;
+  });
+  res.render("category.ejs", {
+    category,
+    entries,
   });
 });
 app.put("/entries/:entryID", (req, res) => {
