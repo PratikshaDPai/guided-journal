@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+  </head>
+  <body>
+    <h1>All Entries</h1>
+    <ol>
+      <h2>Work</h2>
+      <% USER.entries.forEach((item,index)=>{ %> <%if(item.category==="work"){
+      %>
+      <h3>
+        <li><%=item.title%></li>
+        <p>
+          Mood: <%=item.mood%>/5<%=item.mood===5?"⭐":item.mood<=2?"😑":"👌"%>
+        </p>
+      </h3>
+      <p><%=item.body%></p>
+      <p><%=item.timestamp%></p>
+      <%}%> <%})%>
+    </ol>
+    <ol>
+      <h2>Wellness</h2>
+      <% USER.entries.forEach((item,index)=>{ %>
+      <%if(item.category==="wellness"){ %>
+      <h3>
+        <li><%=item.title%></li>
+        <p>
+          Mood: <%=item.mood%>/5<%=item.mood===5?"⭐":item.mood<=2?"😑":"👌"%>
+        </p>
+      </h3>
+      <p><%=item.body%></p>
+      <p><%=item.timestamp%></p>
+      <%}%> <%})%>
+    </ol>
+    <ol>
+      <h2>Life</h2>
+      <% USER.entries.forEach((item,index)=>{ %> <%if(item.category==="life"){
+      %>
+      <h3>
+        <li><%=item.title%> %></li>
+        <p>
+          Mood: <%=item.mood%>/5<%=item.mood===5?"⭐":item.mood<=2?"😑":"👌"%>
+        </p>
+      </h3>
+      <p>$<%=item.body%></p>
+      <p><%=item.timestamp%></p>
+      <%}%> <%})%>
+    </ol>
+  </body>
+</html>
