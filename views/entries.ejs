@@ -10,7 +10,7 @@
     <h1>All Entries</h1>
     <ol>
       <h2>Work</h2>
-      <% USER.entries.forEach((item,index)=>{ %> <%if(item.category==="work"){
+      <% user.entries.forEach((item,index)=>{ %> <%if(item.category==="work"){
       %>
       <h3>
         <li><%=item.title%></li>
@@ -24,7 +24,7 @@
     </ol>
     <ol>
       <h2>Wellness</h2>
-      <% USER.entries.forEach((item,index)=>{ %>
+      <% user.entries.forEach((item,index)=>{ %>
       <%if(item.category==="wellness"){ %>
       <h3>
         <li><%=item.title%></li>
@@ -38,7 +38,7 @@
     </ol>
     <ol>
       <h2>Life</h2>
-      <% USER.entries.forEach((item,index)=>{ %> <%if(item.category==="life"){
+      <% user.entries.forEach((item,index)=>{ %> <%if(item.category==="life"){
       %>
       <h3>
         <li><%=item.title%> %></li>

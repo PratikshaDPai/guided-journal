@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+app.use(express.urlencoded({ extended: true }));
 
 const USER = {
   name: "John Smith",
@@ -55,11 +56,17 @@ app.get("/", (req, res) => {
 });
 app.get("/entries", (req, res) => {
   res.render("entries.ejs", {
-    USER: USER,
+    user: USER,
   });
 });
 app.get("/entries/new", (req, res) => {
   res.render("new.ejs");
+});
+
+app.post("/entries", (req, res) => {
+  console.log(req.body); // Logs the received form data
+  res.json({ message: "Entry received", data: req.body });
+  USER.entries.push(req.body);
 });
 app.get("/entries/:category", (req, res) => {
   const category = String(req.params.category).toLowerCase();
@@ -77,8 +84,15 @@ app.put("/entries/:entryID", (req, res) => {
   });
 });
 app.delete("/entries/:entryID", (req, res) => {
+  const entryID = req.params.entryID;
+
+  // delete entry from entries
+  USER.entries = USER.entries.filter((item) => {
+    return item.id !== entryID;
+  });
+  //render new entries list
   res.render("entries.ejs", {
-    USER: USER,
+    user: USER,
   });
 });
 
